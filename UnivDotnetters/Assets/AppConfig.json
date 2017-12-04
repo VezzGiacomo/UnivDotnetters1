@@ -1,0 +1,4 @@
+{
+  "UrlCineAPI": "http://localhost:49017/api/v1",
+  "UseDesignTimeData": true  
+}

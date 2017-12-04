@@ -1,0 +1,52 @@
+﻿<Page xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:ignore="http://www.galasoft.ch/ignore"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:i="using:Microsoft.Xaml.Interactivity"
+      xmlns:core="using:Microsoft.Xaml.Interactions.Core"
+      xmlns:s="using:System"
+      x:Class="UnivDotnetters.Pages.MainPage"
+      mc:Ignorable="d ignore"
+      DataContext="{Binding MainViewModelContext, Source={StaticResource Locator}}">
+
+    <Grid Style="{StaticResource MainContainer}">
+
+        <StackPanel Background="Transparent"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center">
+
+            <TextBlock Text="Demo Cinematic" Style="{StaticResource TextBlockHeader}" FontSize="30" Margin="10">
+                <i:Interaction.Behaviors>
+                    <core:EventTriggerBehavior EventName="Tapped">
+            			<core:InvokeCommandAction Command="{Binding NavigateCommand, Mode=OneWay}" CommandParameter="CinematicMainPage" />
+            		</core:EventTriggerBehavior>
+                </i:Interaction.Behaviors>
+            </TextBlock>
+
+            <TextBlock Text="Test Skins" Style="{StaticResource TextBlockHeader}" FontSize="30" Margin="10">
+
+                <i:Interaction.Behaviors>
+                    <core:EventTriggerBehavior EventName="Tapped">
+            			<core:InvokeCommandAction Command="{Binding NavigateCommand, Mode=OneWay}"
+                                                  CommandParameter="TestSkinsPage" />
+            		</core:EventTriggerBehavior>
+                </i:Interaction.Behaviors>
+
+            </TextBlock>
+
+            <TextBlock Text="Test Services" Style="{StaticResource TextBlockHeader}" FontSize="30" Margin="10">
+
+                <i:Interaction.Behaviors>
+                    <core:EventTriggerBehavior EventName="Tapped">
+            			<core:InvokeCommandAction Command="{Binding TestServicesCommand, Mode=OneWay}"/>
+            		</core:EventTriggerBehavior>
+                </i:Interaction.Behaviors>
+
+            </TextBlock>
+            <TextBlock Text="{Binding TestServicesResult}" Style="{StaticResource TextBlockLabel}"/>
+
+
+        </StackPanel>
+    </Grid>
+</Page>

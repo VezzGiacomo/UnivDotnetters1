@@ -1,0 +1,222 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!--#region TextBlock -->
+
+    <Style TargetType="TextBlock" x:Key="TextBlockBase">
+        <Setter Property="Margin" Value="2" />
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="Foreground" Value="{StaticResource BaseForeground}" />
+        <Setter Property="FontFamily" Value="{StaticResource BaseFontFamily}" />
+    </Style>
+    
+    <Style TargetType="TextBlock" BasedOn="{StaticResource TextBlockBase}" x:Key="TextBlockLabel">
+        <Setter Property="FontWeight" Value="SemiBold" />
+    </Style>
+
+    <Style TargetType="TextBlock" BasedOn="{StaticResource TextBlockBase}" x:Key="TextBlockHeader">
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="FontWeight" Value="Bold" />
+    </Style>
+
+    <Style TargetType="TextBlock" BasedOn="{StaticResource TextBlockHeader}" x:Key="TextBlockHeaderPlus">
+        <Setter Property="Foreground" Value="{StaticResource BaseForegroundPlus}" />
+    </Style>
+
+    <!--#endregion-->
+
+    <!--#region TextBox -->
+    
+    <Style TargetType="TextBox">
+        <Setter Property="Margin" Value="2" />
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="Foreground" Value="{StaticResource BaseForeground}" />
+        <Setter Property="FontFamily" Value="{StaticResource BaseFontFamily}" />
+    </Style>
+
+    <!--#endregion-->
+
+    <!--#region CalendarDatePicker -->
+
+    <Style TargetType="CalendarDatePicker">
+        <Setter Property="Margin" Value="2" />
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="Foreground" Value="{StaticResource BaseForeground}" />
+        <Setter Property="FontFamily" Value="{StaticResource BaseFontFamily}" />
+    </Style>
+
+    <!--#endregion-->
+
+    <!--#region Contenedores -->
+
+    <Style TargetType="Grid" x:Key="MainContainer">
+        <Setter Property="Margin" Value="0" />
+        <Setter Property="Background" Value="{StaticResource MainContainerBackground}" />
+    </Style>
+
+    <Style TargetType="Grid" x:Key="InnerContainerNoBack">
+        <Setter Property="Margin" Value="0" />
+        <Setter Property="BorderBrush" Value="{StaticResource InnerContainerBorder}" />
+        <Setter Property="BorderThickness" Value="1.5" />
+    </Style>
+
+    <Style TargetType="Grid" BasedOn="{StaticResource InnerContainerNoBack}" x:Key="InnerContainer">
+        <Setter Property="Background" Value="{StaticResource InnerContainerBackground}" />
+    </Style>
+
+    <!--#endregion-->
+
+    <!--#region Button -->
+
+    <Style TargetType="Button">
+        <Setter Property="Margin" Value="2"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Grid>
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+
+                                <VisualState x:Name="Normal"/>
+
+                                <VisualState x:Name="Focused">
+                                    <Storyboard>
+                                        <ColorAnimation Duration="0" Storyboard.TargetName="RoundButtonBackColor" Storyboard.TargetProperty="Color" To="Blue"/>
+                                        <ColorAnimation Duration="0" Storyboard.TargetName="RoundButtonForeColor" Storyboard.TargetProperty="Color" To="White"/>
+                                    </Storyboard>
+                                </VisualState>
+
+                                <VisualState x:Name="Pressed">
+                                    <Storyboard>
+                                        <ColorAnimation Duration="0" Storyboard.TargetName="RoundButtonBackColor" Storyboard.TargetProperty="Color" To="DodgerBlue"/>
+                                        <ColorAnimation Duration="0" Storyboard.TargetName="RoundButtonForeColor" Storyboard.TargetProperty="Color" To="Red"/>
+                                    </Storyboard>
+                                </VisualState>
+
+                                <VisualState x:Name="Disabled">
+                                    <Storyboard>
+                                        <ColorAnimation Duration="0" Storyboard.TargetName="RoundButtonBackColor" Storyboard.TargetProperty="Color" To="#FFB2A9A9"/>
+                                        <ColorAnimation Duration="0" Storyboard.TargetName="RoundButtonForeColor" Storyboard.TargetProperty="Color" To="White"/>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+
+                        <Border Margin="0" BorderBrush="{StaticResource ButtonContainerBorder}" BorderThickness="1" CornerRadius="2,6,6,6">
+                            <Border.Background>
+                                <SolidColorBrush x:Name="RoundButtonBackColor" Color="Transparent"/>
+                            </Border.Background>
+                        </Border>
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2" FontFamily="{StaticResource BaseFontFamily}">
+                            <ContentPresenter.Foreground>
+                                <SolidColorBrush x:Name="RoundButtonForeColor" Color="Black"/>
+                            </ContentPresenter.Foreground>
+                        </ContentPresenter>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="DotNettersButton" TargetType="Button">
+        <Setter Property="Margin" Value="2"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Grid MinWidth="80" MinHeight="40" MaxWidth="300" MaxHeight="180">
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                
+                                <VisualState x:Name="Normal"/>
+
+                                <VisualState x:Name="Focused">
+                                    <Storyboard>
+                                        <ColorAnimation Duration="0" Storyboard.TargetName="DotNettersButtonBackColor" Storyboard.TargetProperty="Color" To="#FFBB2222"/>
+                                        <ColorAnimation Duration="0" Storyboard.TargetName="DotNettersButtonForeColor" Storyboard.TargetProperty="Color" To="White"/>
+                                    </Storyboard>
+                                </VisualState>
+
+                                <VisualState x:Name="Pressed">
+                                    <Storyboard>
+                                        <ColorAnimation Duration="0" Storyboard.TargetName="DotNettersButtonBackColor" Storyboard.TargetProperty="Color" To="#FF170909"/>
+                                        <ColorAnimation Duration="0" Storyboard.TargetName="DotNettersButtonForeColor" Storyboard.TargetProperty="Color" To="Red"/>
+                                    </Storyboard>
+                                </VisualState>
+
+                                <VisualState x:Name="Disabled">
+                                    <Storyboard>
+                                        <ColorAnimation Duration="0" Storyboard.TargetName="DotNettersButtonBackColor" Storyboard.TargetProperty="Color" To="#FFB2A9A9"/>
+                                        <ColorAnimation Duration="0" Storyboard.TargetName="DotNettersButtonForeColor" Storyboard.TargetProperty="Color" To="White"/>
+                                    </Storyboard>
+                                </VisualState>
+
+
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+
+                        <Border Margin="0" BorderBrush="{StaticResource ButtonContainerBorder}" BorderThickness="2" CornerRadius="2,6,6,6">
+                            <Border.Background>  
+                                <SolidColorBrush x:Name="DotNettersButtonBackColor" Color="#FFBB2222"/> 
+                            </Border.Background>
+                            
+                            <StackPanel Margin="5">
+                                <!--<Image Grid.Row="0" Grid.Column="0" Source="Images\LogoDotNetters.png"/>-->
+                                <ContentPresenter Margin="2" HorizontalAlignment="Center" VerticalAlignment="Center"  FontFamily="{StaticResource BaseFontFamily}">
+                                    <ContentPresenter.Foreground>
+                                        <SolidColorBrush x:Name="DotNettersButtonForeColor" Color="Black"/>
+                                    </ContentPresenter.Foreground>
+                                </ContentPresenter>
+                            </StackPanel>
+                        </Border>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--#endregion-->
+
+
+    <!--#region CheckBox -->
+
+    <Style TargetType="CheckBox" x:Key="CheckBoxBase">
+        <Setter Property="Margin" Value="0" />
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="MinWidth" Value="0" />
+        <Setter Property="Foreground" Value="{StaticResource BaseForeground}" />
+        <Setter Property="FontFamily" Value="{StaticResource BaseFontFamily}" />
+    </Style>
+
+    <Style TargetType="CheckBox" BasedOn="{StaticResource CheckBoxBase}" x:Key="CheckBoxLabel">
+        <Setter Property="FontWeight" Value="SemiBold" />
+    </Style>
+
+    <Style TargetType="CheckBox" BasedOn="{StaticResource CheckBoxBase}" x:Key="CheckBoxHeader">
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="MinWidth" Value="0" />
+        <Setter Property="FontWeight" Value="Bold" />
+    </Style>
+
+    <Style TargetType="CheckBox" BasedOn="{StaticResource CheckBoxHeader}" x:Key="CheckBoxHeaderPlus">
+        <Setter Property="Foreground" Value="{StaticResource BaseForegroundPlus}" />
+    </Style>
+
+    <!--#endregion-->
+
+    <!--#region CheckBox -->
+
+    <Style TargetType="ComboBox" x:Key="ComboBoxBase">
+        <Setter Property="Margin" Value="0" />
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="MinWidth" Value="0" />
+        <Setter Property="Foreground" Value="{StaticResource BaseForeground}" />
+        <Setter Property="FontFamily" Value="{StaticResource BaseFontFamily}" />
+    </Style>
+
+
+    <!--#endregion-->
+
+
+
+</ResourceDictionary>
